@@ -1,0 +1,13 @@
+{
+  "vetEmail": "vet@example.com",
+  "timeOffset": {
+    "amount": 14,
+    "unit": "days"
+  },
+  "weekDay": "Monday",
+  "petName": "Buddy",
+  "petBirthday": "2018-05-01",
+  "ownerEmail": "owner@example.com",
+  "reminderType": "check-up",
+  "message": "Time for Buddy's regular check-up."
+}
