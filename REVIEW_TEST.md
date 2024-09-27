@@ -26,7 +26,7 @@ Timely - Actually yes, because the failures are not implemented yet, although th
 
 TEST DESIDERATA
 Behaviour - No, I think the tests for the failures are not covered any behaviour
-Structure insensitive - Yes
+Structure insensitive - No, the tests are checking directly the message of the exceptions
 Readable - Yes
 Easy to write - Yes
 Fast - Yes
@@ -39,3 +39,8 @@ Composable ??
 Specific - Yes
 Predict production - No, they are better than the previous tests but not all the options are covered
 Inspiring - Not really
+
+The approach to improve those tests was trying to obtain all the responses from the AI Assistant.
+It became tedious and quite boring
+The immediate test result was better than the previous, but it's still not covering all the cases and
+the tests was worst that the first time
