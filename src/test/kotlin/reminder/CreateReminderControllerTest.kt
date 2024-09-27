@@ -15,6 +15,7 @@ import reminder.Pet
 import reminder.ReminderType
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class CreateReminderControllerTest {
 
@@ -41,16 +42,16 @@ class CreateReminderControllerTest {
             petName = "Buddy",
             petBirthday = LocalDate.parse("2020-01-01"),
             ownerEmail = "owner@example.com",
-            reminderType = ReminderType.FOLLOW_UP.type,
+            reminderType = ReminderType.FOLLOW_UP,
             message = "Vet appointment for Buddy",
             createdAt = LocalDateTime.now()
         )
 
         val expectedResponse = ReminderResponse(
             vetEmail = reminder.vetEmail,
-            reminderDateTime = reminder.scheduledDate.toString(),
+            reminderDateTime = reminder.scheduledDate.format(DateTimeFormatter.ISO_LOCAL_DATE),
             pet = Pet(name = reminder.petName, birthday = reminder.petBirthday.toString(), ownerEmail = reminder.ownerEmail),
-            reminderType = reminder.reminderType,
+            reminderType = reminder.reminderType.type,
             message = reminder.message
         )
 
