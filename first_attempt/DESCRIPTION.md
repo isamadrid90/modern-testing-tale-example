@@ -13,5 +13,4 @@ To create a reminder we need:
 The reminder should be visible for both the owner and the vet.
 Also, take into account that the vet will see the reminders ordered depending on the type
 and the age of the pet.
-The result reminder date should be a date in the future
-that is correct and should correspond with the week day indicated.
+The result reminder date should be a date in the future, that is correct and should correspond with the week day indicated.

@@ -69,7 +69,7 @@ Timely - No, we did it when we already had the code
 TEST DESIDERATA
 ======
 Behaviour - No, I think the tests for the failures are not covered any behaviour
-Structure insensitive - No, from the test we know how we're using the collaborators, if the code is refactored it could fail, better not to mock the ReminderDateTimeCalculator
+Structure insensitive - No, from the test we know how we're using the collaborators, if the code is refactored the tests could fail, better not to mock the ReminderDateTimeCalculator
 Readable - It could be improved
 Easy to write - Yes
 Fast - Yes

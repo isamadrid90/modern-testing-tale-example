@@ -12,6 +12,30 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/first_attempt" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/first_attempt" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/second_attempt" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/second_attempt" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/third_attempt" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/third_attempt" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
