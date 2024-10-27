@@ -7,9 +7,9 @@ This repository contains the code examples presented in the talk **"A Modern Tes
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
 - [Attempts](#attempts)
-    - [First attempt](#1-example-1)
-    - [Second attempt](#2-example-2)
-    - [Third attemp](#3-example-3)
+    - [First attempt](#First-attempt)
+    - [Second attempt](#Second-attempt)
+    - [Third attempt](#Third-attempt)
 
 
 ## Introduction
