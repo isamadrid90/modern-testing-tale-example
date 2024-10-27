@@ -1,65 +1,65 @@
-import io.mockk.*
-import io.mockk.impl.annotations.MockK
-import io.mockk.junit5.MockKExtension
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertNotNull
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
-import reminder.*
-import java.time.LocalDate
-import java.time.LocalDateTime
+package reminder
 
-@ExtendWith(MockKExtension::class)
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.verify
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
+import reminder.ReminderDateTimeCalculator
+import reminder.ReminderService
+
 class ReminderServiceTest {
 
-    @MockK
-    private lateinit var reminderRepository: ReminderRepository
+    private val reminderDateTimeCalculator: ReminderDateTimeCalculator = mockk()
+    private val reminderService = ReminderService(reminderDateTimeCalculator)
 
-    @MockK
-    private lateinit var reminderDateTimeCalculator: ReminderDateTimeCalculator
+    @Test
+    fun `should calculate correct reminder date`() {
+        val vetEmail = "vet@example.com"
+        val timeToAdd = "30"
+        val weekDay = "Monday"
+        val petName = "Buddy"
+        val birthday = "2020-01-01"
+        val ownerEmail = "owner@example.com"
+        val reminderType = "Check-up"
+        val message = "Time for the annual check-up!"
 
-    private lateinit var reminderService: ReminderService
+        every { reminderDateTimeCalculator.calculateFutureDate(any(), any(), any()) } returns LocalDate.of(2023, 11, 1)
 
-    @BeforeEach
-    fun setUp() {
-        reminderService = ReminderService(reminderRepository, reminderDateTimeCalculator)
+        val reminder = reminderService.createReminder(CreateReminderRequest(
+            vetEmail, timeToAdd, weekDay, petName, birthday, ownerEmail, reminderType, message
+        ))
+
+        Assertions.assertNotNull(reminder)
+        Assertions.assertEquals("Buddy", reminder.petName)
+        Assertions.assertEquals("vet@example.com", reminder.vetEmail)
+
+        verify(exactly = 1) { reminderDateTimeCalculator.calculateFutureDate(any(), any(), any()) }
     }
 
     @Test
-    fun `should create reminder successfully`() {
-        val request = ReminderRequest(
-            vetEmail = "vet@example.com",
-            timeOffset = TimeOffset(amount = 2, unit = "days"),
-            weekDay = "Monday",
-            petName = "Buddy",
-            petBirthday = "2022-08-20",
-            ownerEmail = "owner@example.com",
-            reminderType = "Vaccination",
-            message = "Time for your pet's vaccination!"
-        )
+    fun `should throw exception for invalid date format`() {
+        val vetEmail = "vet@example.com"
+        val timeToAdd = "invalid"
+        val weekDay = "Monday"
+        val petName = "Buddy"
+        val birthday = "2020-01-01"
+        val ownerEmail = "owner@example.com"
+        val reminderType = "Check-up"
+        val message = "Time for the annual check-up!"
 
-        val scheduledDate = LocalDateTime.now().plusDays(2)
-        val reminder = Reminder(
-            id = "1",
-            vetEmail = "vet@example.com",
-            scheduledDate = scheduledDate,
-            petName = "Buddy",
-            petBirthday = LocalDate.parse("2022-08-20"),
-            ownerEmail = "owner@example.com",
-            reminderType = ReminderType.VACCINATION,
-            message = "Time for your pet's vaccination!",
-            createdAt = LocalDateTime.now()
-        )
+        every { reminderDateTimeCalculator.calculateFutureDate(any(), any(), any()) } throws IllegalArgumentException("Invalid date format")
 
-        // Mock behavior
-        every { reminderDateTimeCalculator.calculate(any()) } returns scheduledDate
-        every { reminderRepository.save(any<Reminder>()) } returns reminder
+        val exception: IllegalArgumentException = Assertions.assertThrows(IllegalArgumentException::class.java) {
+            reminderService.createReminder(
+                CreateReminderRequest(
+                    vetEmail, timeToAdd, weekDay, petName, birthday, ownerEmail, reminderType, message
+                )
+            )
+        }
 
-        val result = reminderService.createReminder(request)
+        Assertions.assertEquals("Invalid date format", exception.message)
 
-        assertNotNull(result)
-        assertEquals(reminder, result)
-        verify { reminderRepository.save(any<Reminder>()) }
+        verify(exactly = 1) { reminderDateTimeCalculator.calculateFutureDate(any(), any(), any()) }
     }
 }

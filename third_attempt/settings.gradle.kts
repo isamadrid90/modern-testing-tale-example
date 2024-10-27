@@ -1,2 +1,2 @@
-rootProject.name = "modern-testing-tale-third-attempt"
+rootProject.name = "third_attempt"
 
