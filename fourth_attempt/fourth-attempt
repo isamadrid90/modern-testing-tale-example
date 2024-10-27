@@ -1,0 +1,482 @@
+Chat 'ChatTitle(text=New Chat, isCustom=false)' (43e0b071-8ac6-4051-87d9-9e16aa7d215d)
+Context:
+You are working on project that uses Jakarta EE with jakarta imports, Spring MVC, Java SDK version 21., Kotlin API version 2.0.
+Messages: 8
+======================================================================================
+
+User: 
+Hello could you check the file DESCRIPTION.md?
+
+Assistant: 
+The `DESCRIPTION.md` file describes the requirements for a new feature to be added to a Vet application. Here's a summary of the requirements:
+
+### New Feature: Pet Reminder Creation
+
+#### Reminder Details
+To create a reminder, the following information is needed:
+- **Vet's Email**: The email address of the veterinarian.
+- **Time Addition**: The amount of time added to the current date (in days or months).
+- **Week Day**: The specific week day when the reminder should take place.
+- **Pet's Name**: The name of the pet.
+- **Pet's Birthday**: The birthdate of the pet.
+- **Owner's Email**: The email address of the pet owner.
+- **Reminder Type**: This could be one of the following:
+  - Treat for parasites
+  - Follow-up
+  - Check-up
+  - Screening
+- **Message**: A message detailing the reminder.
+
+#### Additional Conditions
+- The reminder should be visible to both the owner and the vet.
+- Vets will see reminders ordered based on the type and the age of the pet.
+- The resulting reminder date should be in the future and align correctly with the specified week day.
+
+This feature ensures that reminders are organized and correctly aligned with the pet's care schedule, making it easier for both vets and pet owners to keep track of important dates.
+Before answering it did these function calls:
+functionName: com.intellij.ml.llm.smartChat.endpoints.search.ExactSearchEndpoint@21fc240c
+parameters: {"searchType":"files","query":"DESCRIPTION.md"}
+content: [{"name":"DESCRIPTION.md","score":11555.0,"id":"efd849f2-64b4-4dd7-917c-f21b41f620d4"},{"name":"DESCRIPTION.md","score":11555.0,"id":"0a9ba893-8898-4189-a9a0-cadee59251f5"},{"name":"DESCRIPTION.md","score":11555.0,"id":"cfb55daf-7bbe-4be7-b1a2-4a45904a4c95"}]
+--------------------------------------------------------------------------------------
+              functionName: com.intellij.ml.llm.smartChat.endpoints.search.ExpandSearchResultEndpoint@657f290e
+              parameters: {"searchId":"efd849f2-64b4-4dd7-917c-f21b41f620d4"}
+              content: contents:
+
+We´re building a Vet application, and we want to add a new feature.
+
+A vet should be able to create a reminder for a pet. 
+To create a reminder we need:
+* the vet's email
+* the time to add to the current date (it could be number of days or months)
+* the week day when it should take place
+* the name of the pet
+* the birthday of the pet
+* the email of the owner
+* type of reminder: treat for parasites, follow-up, check-up, screening
+* a message
+The reminder should be visible for both the owner and the vet.
+Also, take into account that the vet will see the reminders ordered depending on the type
+and the age of the pet.
+The result reminder date should be a date in the future
+that is correct and should correspond with the week day indicated.
+--------------------------------------------------------------------------------------
+
+
+User: 
+and you could check the code inside first_attempt/src/main
+
+Assistant: 
+Here is a list of the files and an overview or notable excerpts from their contents within the `first_attempt/src/main` directory:
+
+### 1. `CreateReminderController.kt`
+This file likely contains the controller logic for creating reminders.
+
+### 2. `ReminderService.kt`
+This file would generally contain business logic or the service layer handling reminders.
+
+### 3. `ReminderDateTimeCalculator.kt`
+This file is probably responsible for the calculations related to reminder dates.
+
+If you want to perform specific actions or get a detailed review of a particular file, please let me know!
+Before answering it did these function calls:
+functionName: com.intellij.ml.llm.smartChat.endpoints.FindPatternEndpoint@493b9f74
+parameters: {"pattern":"first_attempt/src/main"}
+content: 
+--------------------------------------------------------------------------------------
+functionName: com.intellij.ml.llm.smartChat.endpoints.FindPatternEndpoint@493b9f74
+parameters: {"pattern":"first_attempt/src/main"}
+content: Failure: deterministic function was already called with this args. Results will not change. Do not do that again.
+--------------------------------------------------------------------------------------
+functionName: com.intellij.ml.llm.smartChat.endpoints.GetOpenedFilesEndpoint@35bc791c
+parameters: {}
+content: /Users/isagarrido/personal-projects/modern-testing-tale-example/DESCRIPTION.md, /Users/isagarrido/personal-projects/modern-testing-tale-example/first_attempt/src/main/kotlin/reminder/CreateReminderController.kt, /Users/isagarrido/personal-projects/modern-testing-tale-example/first_attempt/src/main/kotlin/reminder/ReminderService.kt, /Users/isagarrido/personal-projects/modern-testing-tale-example/first_attempt/src/main/kotlin/reminder/ReminderDateTimeCalculator.kt, /Users/isagarrido/personal-projects/modern-testing-tale-example/first_attempt/DESCRIPTION.md, /Users/isagarrido/chat-a0d35f9b-7004-4c60-b83d-150b6c948c5e.txt, /Users/isagarrido/personal-projects/modern-testing-tale-example/first_attempt/src/test/kotlin/reminder/CreateReminderControllerTest.kt, /Users/isagarrido/personal-projects/modern-testing-tale-example/first_attempt/chat-conversation.txt, /Users/isagarrido/personal-projects/modern-testing-tale-example/second_attempt/chat-conversation.txt, /Users/isagarrido/personal-projects/modern-testing-tale-example/.gitignore, /Users/isagarrido/personal-projects/modern-testing-tale-example/third_attempt/settings.gradle.kts, /Users/isagarrido/personal-projects/modern-testing-tale-example/second_attempt/settings.gradle.kts, /Users/isagarrido/personal-projects/modern-testing-tale-example/third_attempt/REVIEW.md, /Users/isagarrido/personal-projects/modern-testing-tale-example/second_attempt/src/test/kotlin/reminder/CreateReminderControllerTest.kt, /Users/isagarrido/personal-projects/modern-testing-tale-example/second_attempt/src/main/kotlin/reminder/ReminderService.kt, /Users/isagarrido/personal-projects/modern-testing-tale-example/third_attempt/src/test/kotlin/reminder/CreateReminderControllerTest.kt, /Users/isagarrido/personal-projects/modern-testing-tale-example/third_attempt/src/test/kotlin/reminder/ReminderServiceTest.kt, /Users/isagarrido/personal-projects/modern-testing-tale-example/img.png, /Users/isagarrido/personal-projects/modern-testing-tale-example/second_attempt/REVIEW_TEST.md, /Users/isagarrido/personal-projects/modern-testing-tale-example/EXAMPLES.md, /Users/isagarrido/Library/Application Support/JetBrains/IntelliJIdea2024.3/scratches/scratch.kt, /Users/isagarrido/Library/Application Support/JetBrains/IntelliJIdea2024.3/scratches/test.kts, /Users/isagarrido/Library/Application Support/JetBrains/IntelliJIdea2024.3/scratches/scratch_1.java
+--------------------------------------------------------------------------------------
+              functionName: com.intellij.ml.llm.smartChat.endpoints.CurrentFileEndpoint@75a0e7e3
+              parameters: {}
+              content: contents:
+
+REVIEW
+======
+
+In Reminder we need a ReminderType, in the response we use a string,
+the solution has mixed both, we'll fix it manually because I'm sick of discussing
+
+```kotlin
+every { reminderService.createReminder(any()) } throws IllegalArgumentException("Invalid date format")
+
+val exception = Assertions.assertThrows(IllegalArgumentException::class.java) {
+    createReminderController.createReminder(request)
+}
+
+Assertions.assertEquals("Invalid date format", exception.message)
+```
+What would happen if a controller throws an exception? The response will be 500 or another status code not just throwing the exception
+
+FIRST
+====
+
+Fast - Yes
+Isolated - Meh 
+Repeatable - No, we'll still have LocalDateTime.now() inside createdAt
+Self-validating - Yes
+Timely - Actually yes, because the failures are not implemented yet, although the tests passes
+
+TEST DESIDERATA
+=======
+Behaviour - No, the situation described in the errors is not really useful because springboot managed all the exceptions inside a controller returning a 500
+Structure insensitive - No, the tests are checking directly the message of the exceptions
+Readable - Yes
+Easy to write - Yes
+Fast - Yes
+Deterministic - No, we're still using the LocalDateTime.now
+Automated - Yes
+Isolated - Yes
+Composable - Yes
+Specific - Yes
+Predict production - No, they are better than the previous tests but not all the options are covered
+Inspiring - Not really
+
+The approach to improve those tests was trying to obtain all the responses from the AI Assistant.
+It became tedious and quite boring
+The immediate test result was better than the previous, but it's still not covering all the cases and
+the tests were worst that the first time
+--------------------------------------------------------------------------------------
+
+
+User: 
+ok, now I'll need all the necessary unit tests to cover create a reminder behaviour
+
+Assistant: 
+To create comprehensive unit tests for the reminder creation behavior, we can focus on the key components involved: `CreateReminderController`, `ReminderService`, and `ReminderDateTimeCalculator`. Here's an example of how to unit test `CreateReminderController` and `ReminderService`.
+
+### Unit Tests for `CreateReminderController`
+
+#### Test: Creating a Reminder Successfully
+```kotlin
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
+import org.mockito.Mockito.*
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+
+class CreateReminderControllerTest {
+    
+    private val reminderService: ReminderService = mock(ReminderService::class.java)
+    private val createReminderController = CreateReminderController(reminderService)
+    
+    @Test
+    fun `should create a reminder successfully`() {
+        val request = CreateReminderRequest(
+            vetEmail = "vet@example.com",
+            timeToAdd = "30",
+            weekDay = "Monday",
+            petName = "Buddy",
+            birthday = "2020-01-01",
+            ownerEmail = "owner@example.com",
+            reminderType = "Check-up",
+            message = "Time for the annual check-up!"
+        )
+        
+        `when`(reminderService.createReminder(any())).thenReturn(ReminderResponse(
+            success = true,
+            message = "Reminder created successfully"
+        ))
+        
+        val response: ResponseEntity<ReminderResponse> = createReminderController.createReminder(request)
+        
+        assertEquals(HttpStatus.OK, response.statusCode)
+        assertEquals("Reminder created successfully", response.body?.message)
+    }
+
+    @Test
+    fun `should handle invalid date format exception`() {
+        val request = CreateReminderRequest(
+            vetEmail = "vet@example.com",
+            timeToAdd = "invalid",
+            weekDay = "Monday",
+            petName = "Buddy",
+            birthday = "2020-01-01",
+            ownerEmail = "owner@example.com",
+            reminderType = "Check-up",
+            message = "Time for the annual check-up!"
+        )
+
+        `when`(reminderService.createReminder(any())).thenThrow(IllegalArgumentException("Invalid date format"))
+
+        val exception: IllegalArgumentException = assertThrows(IllegalArgumentException::class.java) {
+            createReminderController.createReminder(request)
+        }
+
+        assertEquals("Invalid date format", exception.message)
+    }
+}
+```
+
+### Unit Tests for `ReminderService`
+
+#### Test: Calculating Correct Reminder Date
+```kotlin
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
+
+class ReminderServiceTest {
+
+    private val reminderDateTimeCalculator: ReminderDateTimeCalculator = ReminderDateTimeCalculator()
+    private val reminderService = ReminderService(reminderDateTimeCalculator)
+    
+    @Test
+    fun `should calculate correct reminder date`() {
+        val vetEmail = "vet@example.com"
+        val timeToAdd = "30"
+        val weekDay = "Monday"
+        val petName = "Buddy"
+        val birthday = "2020-01-01"
+        val ownerEmail = "owner@example.com"
+        val reminderType = "Check-up"
+        val message = "Time for the annual check-up!"
+        
+        val reminder = reminderService.createReminder(CreateReminderRequest(
+            vetEmail, timeToAdd, weekDay, petName, birthday, ownerEmail, reminderType, message
+        ))
+        
+        assertNotNull(reminder)
+        assertEquals("Buddy", reminder.petName)
+        assertEquals("vet@example.com", reminder.vetEmail)
+    }
+
+    @Test
+    fun `should throw exception for invalid date format`() {
+        val vetEmail = "vet@example.com"
+        val timeToAdd = "invalid"
+        val weekDay = "Monday"
+        val petName = "Buddy"
+        val birthday = "2020-01-01"
+        val ownerEmail = "owner@example.com"
+        val reminderType = "Check-up"
+        val message = "Time for the annual check-up!"
+        
+        val exception: IllegalArgumentException = assertThrows(IllegalArgumentException::class.java) {
+            reminderService.createReminder(CreateReminderRequest(
+                vetEmail, timeToAdd, weekDay, petName, birthday, ownerEmail, reminderType, message
+            ))
+        }
+        
+        assertEquals("Invalid date format", exception.message)
+    }
+}
+```
+
+### Unit Tests for `ReminderDateTimeCalculator`
+
+#### Test: Ensuring Future Date Matches Given Weekday
+```kotlin
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
+import java.time.DayOfWeek
+import java.time.LocalDate
+
+class ReminderDateTimeCalculatorTest {
+
+    private val reminderDateTimeCalculator = ReminderDateTimeCalculator()
+    
+    @Test
+    fun `should calculate future date matching given weekday`() {
+        val currentDate = LocalDate.of(2023, 10, 1)
+        val timeToAdd = 30
+        val weekDay = DayOfWeek.MONDAY
+        
+        val calculatedDate = reminderDateTimeCalculator.calculateFutureDate(currentDate, timeToAdd, weekDay)
+        
+        assertEquals(DayOfWeek.MONDAY, calculatedDate.dayOfWeek)
+        assertTrue(calculatedDate.isAfter(currentDate))
+    }
+}
+```
+
+These tests cover various aspects of creating a reminder, handling exceptions, and ensuring the business logic is correctly implemented. Would you like more detailed tests or additional scenarios to be covered?
+Before answering it did these function calls:
+              functionName: com.intellij.ml.llm.smartChat.endpoints.GetCodeAtCaretEndpoint@690b9700
+              parameters: {}
+              content: File path: /Users/isagarrido/personal-projects/modern-testing-tale-example/second_attempt/REVIEW_TEST.md
+Element: 
+Containing code:
+
+
+--------------------------------------------------------------------------------------
+
+
+User: 
+could you redo the tests using mockk instead of mockito
+
+Assistant: 
+Certainly! Let's convert the tests to use [MockK](https://mockk.io/) instead of Mockito. MockK is a popular mocking library in Kotlin that offers idiomatic support for Kotlin features.
+
+### Unit Tests for `CreateReminderController`
+
+#### Test: Creating a Reminder Successfully
+```kotlin
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.slot
+import io.mockk.verify
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+
+class CreateReminderControllerTest {
+    
+    private val reminderService: ReminderService = mockk()
+    private val createReminderController = CreateReminderController(reminderService)
+    
+    @Test
+    fun `should create a reminder successfully`() {
+        val request = CreateReminderRequest(
+            vetEmail = "vet@example.com",
+            timeToAdd = "30",
+            weekDay = "Monday",
+            petName = "Buddy",
+            birthday = "2020-01-01",
+            ownerEmail = "owner@example.com",
+            reminderType = "Check-up",
+            message = "Time for the annual check-up!"
+        )
+        
+        every { reminderService.createReminder(any()) } returns ReminderResponse(
+            success = true,
+            message = "Reminder created successfully"
+        )
+        
+        val response: ResponseEntity<ReminderResponse> = createReminderController.createReminder(request)
+        
+        assertEquals(HttpStatus.OK, response.statusCode)
+        assertEquals("Reminder created successfully", response.body?.message)
+        
+        verify(exactly = 1) { reminderService.createReminder(any()) }
+    }
+
+    @Test
+    fun `should handle invalid date format exception`() {
+        val request = CreateReminderRequest(
+            vetEmail = "vet@example.com",
+            timeToAdd = "invalid",
+            weekDay = "Monday",
+            petName = "Buddy",
+            birthday = "2020-01-01",
+            ownerEmail = "owner@example.com",
+            reminderType = "Check-up",
+            message = "Time for the annual check-up!"
+        )
+
+        every { reminderService.createReminder(any()) } throws IllegalArgumentException("Invalid date format")
+
+        val exception: IllegalArgumentException = assertThrows(IllegalArgumentException::class.java) {
+            createReminderController.createReminder(request)
+        }
+
+        assertEquals("Invalid date format", exception.message)
+        
+        verify(exactly = 1) { reminderService.createReminder(any()) }
+    }
+}
+```
+
+### Unit Tests for `ReminderService`
+
+#### Test: Calculating Correct Reminder Date
+```kotlin
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.slot
+import io.mockk.verify
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
+
+class ReminderServiceTest {
+
+    private val reminderDateTimeCalculator: ReminderDateTimeCalculator = mockk()
+    private val reminderService = ReminderService(reminderDateTimeCalculator)
+    
+    @Test
+    fun `should calculate correct reminder date`() {
+        val vetEmail = "vet@example.com"
+        val timeToAdd = "30"
+        val weekDay = "Monday"
+        val petName = "Buddy"
+        val birthday = "2020-01-01"
+        val ownerEmail = "owner@example.com"
+        val reminderType = "Check-up"
+        val message = "Time for the annual check-up!"
+        
+        every { reminderDateTimeCalculator.calculateFutureDate(any(), any(), any()) } returns LocalDate.of(2023, 11, 1)
+        
+        val reminder = reminderService.createReminder(CreateReminderRequest(
+            vetEmail, timeToAdd, weekDay, petName, birthday, ownerEmail, reminderType, message
+        ))
+        
+        assertNotNull(reminder)
+        assertEquals("Buddy", reminder.petName)
+        assertEquals("vet@example.com", reminder.vetEmail)
+        
+        verify(exactly = 1) { reminderDateTimeCalculator.calculateFutureDate(any(), any(), any()) }
+    }
+
+    @Test
+    fun `should throw exception for invalid date format`() {
+        val vetEmail = "vet@example.com"
+        val timeToAdd = "invalid"
+        val weekDay = "Monday"
+        val petName = "Buddy"
+        val birthday = "2020-01-01"
+        val ownerEmail = "owner@example.com"
+        val reminderType = "Check-up"
+        val message = "Time for the annual check-up!"
+        
+        every { reminderDateTimeCalculator.calculateFutureDate(any(), any(), any()) } throws IllegalArgumentException("Invalid date format")
+        
+        val exception: IllegalArgumentException = assertThrows(IllegalArgumentException::class.java) {
+            reminderService.createReminder(CreateReminderRequest(
+                vetEmail, timeToAdd, weekDay, petName, birthday, ownerEmail, reminderType, message
+            ))
+        }
+        
+        assertEquals("Invalid date format", exception.message)
+        
+        verify(exactly = 1) { reminderDateTimeCalculator.calculateFutureDate(any(), any(), any()) }
+    }
+}
+```
+
+### Unit Tests for `ReminderDateTimeCalculator`
+
+#### Test: Ensuring Future Date Matches Given Weekday
+```kotlin
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
+import java.time.DayOfWeek
+import java.time.LocalDate
+
+class ReminderDateTimeCalculatorTest {
+
+    private val reminderDateTimeCalculator = ReminderDateTimeCalculator()
+    
+    @Test
+    fun `should calculate future date matching given weekday`() {
+        val currentDate = LocalDate.of(2023, 10, 1)
+        val timeToAdd = 30
+        val weekDay = DayOfWeek.MONDAY
+        
+        val calculatedDate = reminderDateTimeCalculator.calculateFutureDate(currentDate, timeToAdd, weekDay)
+        
+        assertEquals(DayOfWeek.MONDAY, calculatedDate.dayOfWeek)
+        assertTrue(calculatedDate.isAfter(currentDate))
+    }
+}
+```
+
+In these test cases:
+- We've used `MockK`'s functions like `mockk()`, `every { ... } returns ...`, `verify { ... }`, and `slot()` for capturing arguments.
+- Verified that the mocked methods were called exactly once using `verify(exactly = 1) { ... }`.
+
+If you need any more specific behavior or further details, feel free to ask!
+
