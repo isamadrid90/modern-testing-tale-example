@@ -1,2 +1,2 @@
-rootProject.name = "first-attempt"
+rootProject.name = "first_attempt"
 
