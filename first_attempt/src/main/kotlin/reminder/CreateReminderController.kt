@@ -19,7 +19,7 @@ class CreateReminderController(private val reminderService: ReminderService) {
     fun createReminder(@RequestBody request: ReminderRequest): ResponseEntity<Any> {
         return try {
             validateRequest(request)
-            val reminder = reminderService.createReminder(request)
+            val reminder: Reminder = reminderService.createReminder(request)
             val response = with(reminder) {
                 ReminderResponse(
                     vetEmail = vetEmail,
